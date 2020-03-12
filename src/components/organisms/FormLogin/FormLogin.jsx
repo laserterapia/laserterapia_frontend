@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { login } from "../../../redux/actions/main";
 
 const FormLogin = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const redirectForgotPassword = () => {
+    props.history.push("/forgot_password");
+  };
 
   return (
     <div
@@ -87,7 +92,10 @@ const FormLogin = props => {
         >
           ENTRAR
         </button>
-        <p style={{ margin: "5px 0px 0px 0px", cursor: "pointer" }}>
+        <p
+          onClick={() => redirectForgotPassword()}
+          style={{ margin: "5px 0px 0px 0px", cursor: "pointer" }}
+        >
           Esqueceu sua senha?
         </p>
       </div>
@@ -95,4 +103,4 @@ const FormLogin = props => {
   );
 };
 
-export default FormLogin;
+export default withRouter(FormLogin);

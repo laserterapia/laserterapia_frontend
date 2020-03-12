@@ -1,16 +1,22 @@
-import React from 'react'
-import { Switch, Route, BrowserRouter } from 'react-router-dom'
+import React from "react";
+import { Switch, Route, BrowserRouter } from "react-router-dom";
 
-import Login from './pages/Login'
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Error from "./pages/Error";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const Routes = props => {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route exact path='/' component={Login} />
-            </Switch>
-        </BrowserRouter>
-    )
-}
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route path="/register" component={Register} />
+        <Route path="/error" component={Error} />
+        <Route path="/forgot_password" component={ForgotPassword} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
-export default Routes
+export default Routes;
