@@ -1,0 +1,76 @@
+@media screen and (max-width: 1023px) {
+  .container_error {
+    background-color: #7d1195;
+    height: 100%;
+    width: 100%;
+  }
+
+  .img_erro {
+    max-height: 330px;
+    max-width: 80%;
+    height: auto;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  .row_error {
+    flex-direction: column;
+    display: flex;
+  }
+
+  .text_error {
+    color: white;
+    font-size: 30px;
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .error_desc {
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    width: fit-content;
+    margin: 40px auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .img_erro {
+    max-height: 353px;
+    height: auto;
+    width: auto;
+    max-width: 432px;
+    margin: 0 auto;
+  }
+
+  .row_error {
+    padding-top: 5%;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: 0 auto;
+  }
+
+  .text_error {
+    color: white;
+    font-size: 70px;
+    width: 400px;
+    margin: 60px auto 0 50px;
+  }
+
+  .error_desc {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    width: fit-content;
+    margin: 80px auto 0px auto;
+  }
+
+  .container_error {
+    background-color: #7d1195;
+    height: 100%;
+    width: 100%;
+  }
+}

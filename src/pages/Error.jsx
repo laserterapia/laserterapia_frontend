@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "react-loader";
+import erro from "../assets/images/erro.png";
+import "../styles/pages/Error.css";
 
 const Error = () => {
   return (
-    <div style={{ backgroundColor: "#141414", height: "100%" }}>ERROR</div>
+    <div className="container_error">
+      <div className="row_error">
+        <img className="img_erro" src={erro} />
+        <b className="text_error">ALGUMA COISA DEU ERRADO</b>
+      </div>
+      <p className="error_desc">Desculpa! Ocorreu um erro :(</p>
+    </div>
   );
 };
 
