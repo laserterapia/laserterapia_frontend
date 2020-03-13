@@ -1,0 +1,93 @@
+@media screen and (max-width: 1023px) {
+  .main_register_container {
+    height: 100%;
+    flex-direction: column;
+  }
+
+  .seja_bem_vindo {
+    flex-direction: row;
+    background-color: #7d1195;
+    display: flex;
+  }
+
+  .img_logo {
+    height: auto;
+    width: auto;
+    max-height: 200px;
+    max-width: 40%;
+    border-radius: 50%;
+    margin: 15px;
+  }
+
+  .texto_bem_vindo {
+    color: white;
+    font-size: 30px;
+    margin: auto 0px;
+    max-width: 200px;
+  }
+
+  .form_register {
+    padding: 0px 10px;
+  }
+
+  .cadastre_se {
+    font-size: 20px;
+    color: #7d1195;
+    margin: 30px auto;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+  }
+
+  .inputs {
+    margin-top: 2px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px groove black;
+  }
+
+  .register_button {
+    background-color: #7d1195;
+    color: white;
+    border: none;
+    display: flex;
+    margin: 20px auto;
+    height: 35px;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .main_register_container {
+    height: 100%;
+    flex-direction: row;
+    display: flex;
+  }
+
+  .seja_bem_vindo {
+    flex-direction: column;
+    background-color: #7d1195;
+    display: flex;
+    width: 50%;
+  }
+
+  .img_logo {
+    height: auto;
+    width: auto;
+    max-height: 286px;
+    max-width: 274px;
+    border-radius: 50%;
+    margin: 15px auto;
+  }
+
+  .texto_bem_vindo {
+    color: white;
+    font-size: 83px;
+    margin: auto 40px;
+    max-width: 280px;
+    line-height: 1em;
+  }
+}
