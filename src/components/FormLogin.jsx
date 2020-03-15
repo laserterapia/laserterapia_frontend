@@ -1,16 +1,49 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
+import Loader from "react-loader";
 
 import { login } from "../redux/actions/main";
 
 const FormLogin = props => {
+
+  const dispatch = useDispatch()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const currentUser = useSelector(state => state.currentUser);
+  const error = useSelector(state => state.error)
 
   const redirectForgotPassword = () => {
     props.history.push("/forgot_password");
   };
+
+  const redirectRegister = () => {
+    props.history.push('/register')
+  }
+
+  function isEmpty(obj) {
+    return Object.entries(obj).length === 0 && obj.constructor === Object
+  }
+
+  useEffect(() => {
+    if(!isEmpty(currentUser) && !currentUser.error){
+      props.history.push('/home')
+    }
+  }, [currentUser])
+
+  useEffect(() => {
+    if(error){
+      props.history.push('/error')
+    }
+  }, [error])
+
+  const renderAlert = (condition, message) => {
+    return (
+      <p style={{ display: condition ? 'flex' : 'none', fontSize: "15px", color: 'red', width: 'inherit', margin: '10px 0px 0px' }}>{message}</p>
+    )
+  }
 
   return (
     <div
@@ -68,6 +101,9 @@ const FormLogin = props => {
             padding: "0px 5px"
           }}
         />
+
+        {renderAlert(currentUser.error, currentUser.error)}
+
       </div>
 
       <div
@@ -79,7 +115,7 @@ const FormLogin = props => {
         }}
       >
         <button
-          onClick={login(email, password)}
+          onClick={() => dispatch(login(email, password))}
           style={{
             width: "90px",
             height: "30px",
@@ -90,13 +126,20 @@ const FormLogin = props => {
             cursor: "pointer"
           }}
         >
-          ENTRAR
+          {'ENTRAR'}
         </button>
         <p
           onClick={() => redirectForgotPassword()}
           style={{ margin: "5px 0px 0px 0px", cursor: "pointer" }}
         >
           Esqueceu sua senha?
+        </p>
+
+        <p
+          onClick={() => redirectRegister()}
+          style={{ margin: "5px 0px 0px 0px", cursor: "pointer", textAlign: 'center' }}
+        >
+          Registre-se
         </p>
       </div>
     </div>

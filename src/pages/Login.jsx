@@ -8,7 +8,7 @@ import { login } from '../redux/actions/main'
 const Login = () => {
 
   return (
-    <div style={{backgroundColor: '#141414', height: '100%'}}>
+    <div style={{ backgroundColor: '#141414', height: '100%' }}>
       <div style={{ display: "block", textAlign: "center" }}>
         <img src={logo} alt='Logo Laserterapia' style={{ width: "200px", height: "200px" }} />
       </div>

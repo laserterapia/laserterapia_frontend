@@ -1,9 +1,8 @@
 import axios from "axios";
-import { BASE_URL } from "../../assets/constants";
-import { LOGIN } from "./_types";
-import { bindActionCreators } from "redux";
+import { BASE_URL, REGISTER_SUCCESS } from "../../assets/constants";
+import { LOGIN, ERROR, REGISTER } from "./_types";
 
-export const login = (email, password) => async () => {
+const login = (email, password) => async (dispatch) => {
   const header = {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json"
@@ -18,12 +17,40 @@ export const login = (email, password) => async () => {
       header
     )
     .then(res => {
-      return {
+      return dispatch({
         type: LOGIN,
-        payload: res
-      };
+        payload: res.data
+      });
     })
     .catch(error => {
-      console.log(error);
+      return dispatch({
+        type: ERROR
+      });
     });
 };
+
+const register = (user) => async (dispatch) => {
+  const header = {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json"
+  };
+  axios.post(
+    `${BASE_URL}/auth/register`,
+    user,
+    header
+  )
+    .then((res) => {
+      return dispatch({
+        type: REGISTER,
+        result: REGISTER_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch((error) => {
+      return dispatch({
+        type: ERROR
+      });
+    })
+}
+
+export { login, register }

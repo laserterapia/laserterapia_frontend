@@ -13,17 +13,18 @@
   .img_logo {
     height: auto;
     width: auto;
-    max-height: 200px;
+    max-height: 120px;
     max-width: 40%;
     border-radius: 50%;
-    margin: 15px;
+    margin: 15px 15px 15px auto;
   }
 
   .texto_bem_vindo {
     color: white;
-    font-size: 30px;
-    margin: auto 0px;
-    max-width: 200px;
+    font-size: 35px;
+    margin: auto auto auto 0px;
+    max-width: 125px;
+    line-height: 1em;
   }
 
   .form_register {
@@ -31,9 +32,9 @@
   }
 
   .cadastre_se {
-    font-size: 20px;
+    font-size: 25px;
     color: #7d1195;
-    margin: 30px auto;
+    margin: 30px auto 55px auto;
     width: fit-content;
     display: flex;
     text-align: center;
@@ -49,14 +50,19 @@
     border-bottom: 1px groove black;
   }
 
+  .senha {
+    margin-top: 30px;
+  }
+
   .register_button {
     background-color: #7d1195;
     color: white;
     border: none;
-    display: flex;
+    display: block;
     margin: 20px auto;
     height: 35px;
-    width: auto;
+    width: 60%;
+    font-size: 15px;
   }
 }
 
@@ -77,17 +83,59 @@
   .img_logo {
     height: auto;
     width: auto;
-    max-height: 286px;
+    max-height: 250px;
     max-width: 274px;
     border-radius: 50%;
-    margin: 15px auto;
+    margin: 40px auto 15px auto;
   }
 
   .texto_bem_vindo {
     color: white;
     font-size: 83px;
-    margin: auto 40px;
+    margin: 10px auto auto auto;
     max-width: 280px;
     line-height: 1em;
+  }
+
+  .form_register {
+    padding: 0px 10px;
+    flex-direction: column;
+    display: flex;
+    width: 80%;
+  }
+
+  .cadastre_se {
+    font-size: 48px;
+    color: #7d1195;
+    margin: 30px auto;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+  }
+
+  .inputs {
+    margin: 2px auto 10px auto;
+    width: 80%;
+    font-size: 20px;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px groove black;
+  }
+
+  .senha {
+    margin-top: 100px;
+  }
+
+  .register_button {
+    background-color: #7d1195;
+    color: white;
+    border: none;
+    display: block;
+    margin: 100px auto 0px auto;
+    height: 66px;
+    width: 342px;
+    font-size: 25px;  
   }
 }
