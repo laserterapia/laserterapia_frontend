@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Error from "./pages/Error";
 import ForgotPassword from "./pages/ForgotPassword";
 import Home from "./pages/Home";
+import ResetPassword from "./pages/ResetPassword";
 
 const Routes = props => {
   return (
@@ -15,6 +16,7 @@ const Routes = props => {
         <Route path="/register" component={Register} />
         <Route path="/error" component={Error} />
         <Route path="/forgot_password" component={ForgotPassword} />
+        <Route path="/reset_password" component={ResetPassword} />
         <Route path='/home' component={Home} />
       </Switch>
     </BrowserRouter>
