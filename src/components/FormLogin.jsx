@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
-import Loader from "react-loader";
+
+import '../styles/Components/FormLogin.css'
 
 import { login } from "../redux/actions/main";
 
@@ -14,6 +15,8 @@ const FormLogin = props => {
 
   const currentUser = useSelector(state => state.currentUser);
   const error = useSelector(state => state.error)
+
+  const enableButton = email !== '' && password !== ''
 
   const redirectForgotPassword = () => {
     props.history.push("/forgot_password");
@@ -28,13 +31,13 @@ const FormLogin = props => {
   }
 
   useEffect(() => {
-    if(!isEmpty(currentUser) && !currentUser.error){
+    if (!isEmpty(currentUser) && !currentUser.error) {
       props.history.push('/home')
     }
   }, [currentUser])
 
   useEffect(() => {
-    if(error){
+    if (error) {
       props.history.push('/error')
     }
   }, [error])
@@ -46,19 +49,7 @@ const FormLogin = props => {
   }
 
   return (
-    <div
-      className="login"
-      style={{
-        flexDirection: "column",
-        width: "auto",
-        maxWidth: "425px",
-        height: "220px",
-        border: "1px solid black",
-        display: "flex",
-        margin: "0px auto",
-        backgroundColor: "white"
-      }}
-    >
+    <div className="login">
       <div
         style={{
           backgroundColor: "#9100c7",
@@ -116,6 +107,7 @@ const FormLogin = props => {
       >
         <button
           onClick={() => dispatch(login(email, password))}
+          disabled={!enableButton}
           style={{
             width: "90px",
             height: "30px",
@@ -123,7 +115,8 @@ const FormLogin = props => {
             border: "none",
             color: "white",
             alignSelf: "center",
-            cursor: "pointer"
+            cursor: enableButton ? "pointer" : 'not-allowed',
+            opacity: enableButton ? '1.0' : '0.5'
           }}
         >
           {'ENTRAR'}

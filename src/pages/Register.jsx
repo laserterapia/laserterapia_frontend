@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from 'react-router-dom'
 
-import Loader from "react-loader";
 import logo_register from "../assets/images/logo_register.png";
 import "../styles/pages/Register.css";
 

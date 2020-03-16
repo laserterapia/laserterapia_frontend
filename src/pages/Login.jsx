@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Loader from "react-loader";
+import React from "react";
 import FormLogin from "../components/FormLogin";
 import logo from "../assets/images/logo.jpg";
 import { login } from '../redux/actions/main'
