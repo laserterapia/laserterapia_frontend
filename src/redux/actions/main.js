@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../assets/constants";
-import { LOGIN, ERROR, REGISTER, FORGOT_PASSWORD } from "./_types";
+import { LOGIN, ERROR, REGISTER, FORGOT_PASSWORD, RESET_PASSWORD } from "./_types";
 
 const login = (email, password) => async(dispatch) => {
     const header = {
@@ -73,4 +73,26 @@ const forgotPassword = (email) => async(dispatch) => {
         })
 }
 
-export { login, register, forgotPassword }
+const resetPassword = (email, token, password) => async(dispatch) => {
+    const header = {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+    };
+    axios.post(
+            `${BASE_URL}/auth/reset-password`, { email: email, token: token, password: password },
+            header
+        )
+        .then((res) => {
+            return dispatch({
+                type: RESET_PASSWORD,
+                payload: res.data
+            });
+        })
+        .catch((error) => {
+            return dispatch({
+                type: ERROR
+            });
+        })
+}
+
+export { login, register, forgotPassword, resetPassword }
