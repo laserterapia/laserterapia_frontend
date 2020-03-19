@@ -6,17 +6,32 @@ import "../styles/pages/ResetPassword.css";
 
 import Alert from "../components/Alert";
 
+import { resetPassword } from '../redux/actions/main'
 
-const TemplateResetPassword = () => {
+
+const TemplateResetPassword = (props) => {
   const dispatch = useDispatch();
 
   const [password, setPassword] = useState("");
   const [confPass, setConfPass] = useState("");
 
+  let url = window.location.href
+  url = url.split('=')
+  
+  const token = url[1]
+  const email = url[3]
+
   const checkPassword =
     password !== "" && confPass !== "" && password !== confPass;
 
-  const forgotPassword = useSelector(state => state.forgotPassword);
+  const reset_password = useSelector(state => state.resetPassword);
+  const error = useSelector(state => state.error);
+
+  useEffect(() => {
+    if (error) {
+      props.history.push("/error");
+    }
+  }, [error]);
 
   return (
     <div className="reset_password" style={{ flexDirection: "column" }}>
@@ -33,7 +48,7 @@ const TemplateResetPassword = () => {
         />
         <p className="label_input_password">{"REPITA SUA SENHA"}</p>
         <input
-          style={{ marginBottom: checkPassword ? "0px" : "60px" }}
+          style={{ marginBottom: checkPassword || reset_password.error ? "0px" : "60px" }}
           onChange={e => setConfPass(e.target.value)}
           type="password"
           value={confPass}
@@ -44,7 +59,12 @@ const TemplateResetPassword = () => {
           message={"As senhas devem ser iguais"}
           margin="10px auto 30px 0px"
         />
-        <button onClick={() => dispatch()} className="button_reset_password">
+        <Alert
+          condition={reset_password.error}
+          message={reset_password.error}
+          margin="10px auto 30px 0px"
+        />
+        <button onClick={() => dispatch(resetPassword(email, token, password))} className="button_reset_password">
           {"CONFIRMAR NOVA SENHA"}
         </button>
       </div>

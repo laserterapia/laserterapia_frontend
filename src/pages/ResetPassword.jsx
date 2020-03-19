@@ -1,21 +1,24 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { withRouter } from 'react-router-dom'
 
 import TemplateResetPassword from '../templates/TemplateResetPassword'
-import Alert from "../components/Alert";
+import TemplateSuccessResetPassword from '../templates/TemplateSuccessResetPassword'
+
 
 const ResetPassword = () => {
 
   const resetPassword = useSelector(state => state.resetPassword)
 
   return (
-    <React.Fragment>
-      {!resetPassword.message ? 
-      <TemplateResetPassword /> : <p>ODAODOASDI</p>
+    // <React.Fragment>
+    //   {!resetPassword.message ? 
+    //   <TemplateResetPassword /> : <p>ODAODOASDI</p>
 
-      }
-    </React.Fragment>
+    //   }
+    // </React.Fragment>
+    <TemplateSuccessResetPassword />
   );
 };
 
-export default ResetPassword;
+export default withRouter(ResetPassword);
