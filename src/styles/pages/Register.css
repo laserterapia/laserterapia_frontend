@@ -125,7 +125,7 @@
   }
 
   .senha {
-    margin-top: 100px;
+    margin-top: 50px;
   }
 
   .register_button {
@@ -133,7 +133,7 @@
     color: white;
     border: none;
     display: block;
-    margin: 100px auto 0px auto;
+    margin: 50px auto 0px auto;
     height: 66px;
     width: 342px;
     font-size: 25px;  
