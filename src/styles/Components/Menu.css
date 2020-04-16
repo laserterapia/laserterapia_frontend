@@ -1,0 +1,125 @@
+@media screen and (max-width: 1023px) {
+  .main_div_menu {
+    flex-direction: column;
+  }
+
+  .menu_logo {
+    background-color: black;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .name_projeto {
+    color: #8923b2;
+    margin: 0px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .name_laserterapia {
+    color: white;
+    margin: 0px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .img_menu_logo {
+    height: auto;
+    max-height: 150px;
+    margin: 10px auto 30px auto;
+  }
+
+  .menu_navigation {
+    background-color: #8923b2;
+    height: 50px;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .links_menu{
+    flex-direction: row;
+    display: flex;
+  }
+
+  .menu_link {
+    height: fit-content;
+    display: flex;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
+
+  .menu_link:hover{
+    background-color: black;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  .main_div_menu {
+    flex-direction: column;
+  }
+
+  .menu_logo {
+    background-color: black;
+    height: auto;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .div_nomes {
+    margin: auto auto auto 100px;
+    width: fit-content;
+  }
+
+  .name_projeto {
+    color: #8923b2;
+    margin: 0px;
+    width: fit-content;
+    font-size: 45px;
+  }
+
+  .name_laserterapia {
+    color: white;
+    margin: 0px;
+    width: fit-content;
+    font-size: 45px;
+    margin-left: 40px;
+  }
+
+  .img_menu_logo {
+    height: auto;
+    max-height: 180px;
+    margin: auto 70px auto auto;
+  }
+
+  .menu_navigation {
+    background-color: #8923b2;
+    height: 70px;
+    overflow: hidden;
+
+  }
+
+  .links_menu{
+    width: 50%;
+    flex-direction: row;
+    display: flex;
+    margin: 0px auto 0px 85px;
+  }
+
+  .menu_link {
+    padding: 23px 20px;
+    font-size: 22px;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+  }
+
+  .menu_link:hover{
+    background-color: black;
+  }
+}

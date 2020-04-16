@@ -6,7 +6,7 @@ import ImageUploader from "react-images-upload";
 import logo_register from "../assets/images/logo_register.png";
 import "../styles/pages/Register.css";
 
-import { register } from "../redux/actions/main";
+import { register } from "../redux/actions/auth.js";
 
 const Register = props => {
   const dispatch = useDispatch();
@@ -19,8 +19,8 @@ const Register = props => {
   const [image, setImage] = useState({});
   const [base64Image, setBase64Image] = useState("");
 
-  const currentUser = useSelector(state => state.currentUser);
-  const error = useSelector(state => state.error);
+  const currentUser = useSelector(state => state.main.currentUser);
+  const error = useSelector(state => state.main.error);
 
   const checkPassword =
     password !== "" && confPass !== "" && password === confPass;

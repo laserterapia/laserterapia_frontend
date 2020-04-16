@@ -1,3 +1,11 @@
 .app {
   font-family: Glacial Indifference;
 }
+
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}

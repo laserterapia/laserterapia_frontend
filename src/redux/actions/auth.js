@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../assets/constants";
-import { LOGIN, ERROR, REGISTER, FORGOT_PASSWORD, RESET_PASSWORD } from "./_types";
+import { LOGIN, ERROR, REGISTER, FORGOT_PASSWORD, RESET_PASSWORD, SET_ERROR_FALSE, ERROR_AUTH } from "./_types";
 
 const login = (email, password) => async(dispatch) => {
     const header = {
@@ -23,7 +23,7 @@ const login = (email, password) => async(dispatch) => {
         })
         .catch(error => {
             return dispatch({
-                type: ERROR
+                type: ERROR_AUTH
             });
         });
 };
@@ -46,7 +46,7 @@ const register = (user) => async(dispatch) => {
         })
         .catch((error) => {
             return dispatch({
-                type: ERROR
+                type: ERROR_AUTH
             });
         })
 }
@@ -68,7 +68,7 @@ const forgotPassword = (email) => async(dispatch) => {
         })
         .catch((error) => {
             return dispatch({
-                type: ERROR
+                type: ERROR_AUTH
             });
         })
 }
@@ -90,9 +90,10 @@ const resetPassword = (email, token, password) => async(dispatch) => {
         })
         .catch((error) => {
             return dispatch({
-                type: ERROR
+                type: ERROR_AUTH
             });
         })
 }
+
 
 export { login, register, forgotPassword, resetPassword }

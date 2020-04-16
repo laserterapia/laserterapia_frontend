@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "react-loader";
+import { getAllUsers } from "../redux/actions/home";
+import Menu from '../components/Menu'
 
 const Home = () => {
+  const dispatch = useDispatch();
 
-  return (
-    <div style={{ backgroundColor: '#141414', height: '100%' }}>
-      HOME
+  const users = useSelector(state => state.home.users);
+  const token = useSelector(state => state.main.token);
+
+  useEffect(() => {
+    dispatch(getAllUsers(token));
+  }, [token]);
+
+  return <Menu>
+    <div>
+    <i class="fas fa-bars"></i>
     </div>
-  );
+  </Menu>;
 };
 
 export default Home;

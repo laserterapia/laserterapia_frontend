@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import '../styles/Components/FormLogin.css'
 
-import { login } from "../redux/actions/main";
+import { login, setErrorFalse } from "../redux/actions/auth.js";
 
 const FormLogin = props => {
 
@@ -13,8 +13,8 @@ const FormLogin = props => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const currentUser = useSelector(state => state.currentUser);
-  const error = useSelector(state => state.error)
+  const currentUser = useSelector(state => state.main.currentUser);
+  const errorAuth = useSelector(state => state.auth.errorAuth)
 
   const enableButton = email !== '' && password !== ''
 
@@ -37,10 +37,11 @@ const FormLogin = props => {
   }, [currentUser])
 
   useEffect(() => {
-    if (error) {
+    if (errorAuth) {
       props.history.push('/error')
     }
-  }, [error])
+  }, [errorAuth])
+
 
   const renderAlert = (condition, message) => {
     return (

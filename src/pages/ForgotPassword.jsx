@@ -8,7 +8,7 @@ import TemplateForgotPassword from "../templates/TemplateForgotPassword";
 import TemplateResetPassword from "../templates/TemplateResetPassword";
 
 const ForgotPassword = props => {
-  const error = useSelector(state => state.error);
+  const error = useSelector(state => state.main.error);
 
   useEffect(() => {
     if (error) {

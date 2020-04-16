@@ -6,15 +6,15 @@ import Alert from "../components/Alert";
 
 import "../styles/pages/ForgotPassword.css";
 
-import { forgotPassword as forgot_password } from "../redux/actions/main";
+import { forgotPassword as forgot_password } from "../redux/actions/auth.js";
 
 const TemplateForgotPassword = props => {
   const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
 
-  const forgotPassword = useSelector(state => state.forgotPassword);
-  const error = useSelector(state => state.error);
+  const forgotPassword = useSelector(state => state.auth.forgotPassword);
+  const error = useSelector(state => state.main.error);
 
   useEffect(() => {
     if (error) {

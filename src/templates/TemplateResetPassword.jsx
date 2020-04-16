@@ -6,7 +6,7 @@ import "../styles/pages/ResetPassword.css";
 
 import Alert from "../components/Alert";
 
-import { resetPassword } from '../redux/actions/main'
+import { resetPassword } from '../redux/actions/auth.js'
 
 
 const TemplateResetPassword = (props) => {
@@ -15,17 +15,11 @@ const TemplateResetPassword = (props) => {
   const [password, setPassword] = useState("");
   const [confPass, setConfPass] = useState("");
 
-  let url = window.location.href
-  url = url.split('=')
-  
-  const token = url[1]
-  const email = url[3]
-
   const checkPassword =
     password !== "" && confPass !== "" && password !== confPass;
 
-  const reset_password = useSelector(state => state.resetPassword);
-  const error = useSelector(state => state.error);
+  const reset_password = useSelector(state => state.auth.resetPassword);
+  const error = useSelector(state => state.main.error);
 
   useEffect(() => {
     if (error) {
@@ -64,9 +58,11 @@ const TemplateResetPassword = (props) => {
           message={reset_password.error}
           margin="10px auto 30px 0px"
         />
-        <button onClick={() => dispatch(resetPassword(email, token, password))} className="button_reset_password">
+        <button onClick={() => dispatch(resetPassword(props.email, props.token, password))} className="button_reset_password">
           {"CONFIRMAR NOVA SENHA"}
         </button>
+
+        <a className='link_return_begin' onClick={props.returnToBegin}>Voltar ao início</a>
       </div>
     </div>
   );

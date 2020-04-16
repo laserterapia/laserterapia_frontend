@@ -4,7 +4,7 @@ import "../styles/pages/ForgotPassword.css";
 import '../styles/pages/SuccessResetPassword.css'
 import success_reset_password from '../assets/images/success_reset_password.png'
 
-const TemplateSuccessResetPassword = () => {
+const TemplateSuccessResetPassword = (props) => {
 
   return (
     <div className="forgot_password" style={{ flexDirection: "column" }}>
@@ -15,7 +15,7 @@ const TemplateSuccessResetPassword = () => {
         <img src={success_reset_password} alt="Sucesso ao resetar a senha"  className='img_success'/>
         <p className='text_reset_success'>Sua nova senha foi redinida com sucesso!</p>
       </div>
-      
+      <a onClick={props.returnToBegin}>Voltar ao início</a>
     </div>
   );
 };

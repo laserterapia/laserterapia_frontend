@@ -1,0 +1,13 @@
+@media screen and (max-width: 1023px) {
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .user_description_card  {
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    max-height: 100px;
+    max-width: 500px;
+  }
+}
