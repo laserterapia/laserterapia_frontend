@@ -16,7 +16,7 @@ const Home = () => {
 
   return <Menu>
     <div>
-    <i class="fas fa-bars"></i>
+
     </div>
   </Menu>;
 };

@@ -31,29 +31,19 @@
     margin: 10px auto 30px auto;
   }
 
-  .menu_navigation {
-    background-color: #8923b2;
-    height: 50px;
-    overflow: hidden;
-    display: flex;
+  .navbar-expand-md{
+    padding: 5px 0px;
   }
 
-  .links_menu{
-    flex-direction: row;
-    display: flex;
-  }
-
-  .menu_link {
-    height: fit-content;
-    display: flex;
-    font-size: 15px;
-    text-decoration: none;
-    font-weight: bold;
+  .nav-link {
     color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 8px 12px !important;
   }
 
-  .menu_link:hover{
-    background-color: black;
+  .navbar-toggler-icon{
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
   }
 }
 
@@ -97,29 +87,15 @@
     margin: auto 70px auto auto;
   }
 
-  .menu_navigation {
-    background-color: #8923b2;
-    height: 70px;
-    overflow: hidden;
-
-  }
-
-  .links_menu{
-    width: 50%;
-    flex-direction: row;
-    display: flex;
-    margin: 0px auto 0px 85px;
-  }
-
-  .menu_link {
-    padding: 23px 20px;
-    font-size: 22px;
-    text-decoration: none;
-    font-weight: bold;
+  .nav-link {
     color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 8px 15px !important;
   }
 
-  .menu_link:hover{
-    background-color: black;
+  .nav-link:hover{
+    color: black;
   }
+
 }
