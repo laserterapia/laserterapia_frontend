@@ -1,0 +1,35 @@
+@media screen and (max-width: 1023px) {
+  .card {
+    width: 100%;
+    height: 400px;
+    margin: 0px;
+    max-width: 280px;
+    margin: 0px 20px 40px;
+ }
+
+  .profile_picture {
+    width: 100%;
+    height: 180px;
+  }
+
+  .card-text {
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+     width: 250px;
+     height: 400px;
+     margin: 0px 20px 40px;
+  }
+
+  .profile_picture {
+    width: 250px;
+    height: 180px;
+  }
+
+  .card-text {
+    font-weight: bold;
+  }
+}

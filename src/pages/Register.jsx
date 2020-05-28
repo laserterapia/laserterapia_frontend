@@ -8,7 +8,7 @@ import "../styles/pages/Register.css";
 
 import { register } from "../redux/actions/auth.js";
 
-const Register = props => {
+const Register = (props) => {
   const dispatch = useDispatch();
 
   const [name, setName] = useState("");
@@ -19,8 +19,8 @@ const Register = props => {
   const [image, setImage] = useState({});
   const [base64Image, setBase64Image] = useState("");
 
-  const currentUser = useSelector(state => state.main.currentUser);
-  const error = useSelector(state => state.main.error);
+  const currentUser = useSelector((state) => state.main.currentUser);
+  const error = useSelector((state) => state.main.error);
 
   const checkPassword =
     password !== "" && confPass !== "" && password === confPass;
@@ -31,22 +31,33 @@ const Register = props => {
     return Object.entries(obj).length === 0 && obj.constructor === Object;
   }
 
-  useEffect(() => {
+  const redirectError = () => {
     if (error) {
       props.history.push("/error");
     }
-  }, [error]);
+  };
 
-  useEffect(() => {
+  const redirectHome = () => {
     if (!isEmpty(currentUser) && !currentUser.error) {
       props.history.push("/home");
     }
-  }, [currentUser]);
+  };
 
   useEffect(() => {
-    if (!isEmpty(image)) {
-      const elem = document.getElementsByClassName("uploadPicture");
-      setBase64Image(elem[0].getAttribute("src"));
+    redirectError();
+  });
+
+  useEffect(() => {
+    redirectHome();
+  });
+
+  useEffect(() => {
+    const errorUpload = !!document.getElementsByClassName("errorMessage")[0];
+    if (!errorUpload) {
+      if (!isEmpty(image)) {
+        const elem = document.getElementsByClassName("uploadPicture");
+        setBase64Image(elem[0].getAttribute("src"));
+      }
     }
   }, [image]);
 
@@ -58,7 +69,7 @@ const Register = props => {
           fontSize: "17px",
           color: "red",
           width: "inherit",
-          margin: "10px auto 0px auto"
+          margin: "10px auto 0px auto",
         }}
       >
         {message}
@@ -66,7 +77,7 @@ const Register = props => {
     );
   };
 
-  const onDrop = picture => {
+  const onDrop = (picture) => {
     setImage(picture);
   };
 
@@ -75,7 +86,7 @@ const Register = props => {
     course,
     email,
     password,
-    profilePicture: base64Image
+    profilePicture: base64Image,
   };
 
   return (
@@ -87,30 +98,30 @@ const Register = props => {
       <div className="form_register">
         <b className="cadastre_se">CADASTRE-SE</b>
         <input
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
           className="inputs"
           placeholder="Nome Completo"
         ></input>
         <input
-          onChange={e => setCourse(e.target.value)}
+          onChange={(e) => setCourse(e.target.value)}
           className="inputs"
           placeholder="Curso"
         ></input>
         <input
           type="email"
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           className="inputs"
           placeholder="Email"
         ></input>
         <input
           type="password"
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           className="inputs senha"
           placeholder="Senha"
         ></input>
         <input
           type="password"
-          onChange={e => setConfPass(e.target.value)}
+          onChange={(e) => setConfPass(e.target.value)}
           className="inputs"
           placeholder="Repita sua senha"
         ></input>
@@ -123,15 +134,16 @@ const Register = props => {
           `${currentUser.error} Contate o usuário administrador.`
         )}
         <ImageUploader
-          className="teste"
           buttonText="Escolha sua foto de perfil"
           label=""
           withPreview={true}
           onChange={onDrop}
           singleImage={true}
           withIcon={false}
-          imgExtension={[".jpg", ".png"]}
-          maxFileSize={5242880}
+          fileTypeError="não é um tipo de arquivo suportado."
+          fileSizeError="imagem muito grande."
+          imgExtension={[".jpg", ".png", ".jpeg", ".jfif"]}
+          maxFileSize={2000000}
           fileContainerStyle={{ boxShadow: "none" }}
         />
 
@@ -140,7 +152,7 @@ const Register = props => {
           disabled={disableButton}
           style={{
             cursor: disableButton ? "not-allowed" : "pointer",
-            opacity: disableButton ? "0.5" : "1.0"
+            opacity: disableButton ? "0.5" : "1.0",
           }}
           className="register_button"
         >

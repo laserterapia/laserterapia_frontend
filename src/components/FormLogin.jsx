@@ -2,52 +2,57 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
-import '../styles/Components/FormLogin.css'
+import "../styles/Components/FormLogin.css";
 
-import { login, setErrorFalse } from "../redux/actions/auth.js";
+import { login } from "../redux/actions/auth.js";
 
-const FormLogin = props => {
-
-  const dispatch = useDispatch()
+const FormLogin = (props) => {
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const currentUser = useSelector(state => state.main.currentUser);
-  const errorAuth = useSelector(state => state.auth.errorAuth)
+  const currentUser = useSelector((state) => state.main.currentUser);
 
-  const enableButton = email !== '' && password !== ''
+  const enableButton = email !== "" && password !== "";
 
   const redirectForgotPassword = () => {
     props.history.push("/forgot_password");
   };
 
   const redirectRegister = () => {
-    props.history.push('/register')
-  }
+    props.history.push("/register");
+  };
+
+  const redirectHome = () => {
+    if (!isEmpty(currentUser) && !currentUser.error) {
+      props.history.push("/home");
+    }
+  };
 
   function isEmpty(obj) {
-    return Object.entries(obj).length === 0 && obj.constructor === Object
+    return Object.entries(obj).length === 0 && obj.constructor === Object;
   }
 
   useEffect(() => {
-    if (!isEmpty(currentUser) && !currentUser.error) {
-      props.history.push('/home')
-    }
-  }, [currentUser])
-
-  useEffect(() => {
-    if (errorAuth) {
-      props.history.push('/error')
-    }
-  }, [errorAuth])
-
+    redirectHome();
+  });
 
   const renderAlert = (condition, message) => {
     return (
-      <p style={{ display: condition ? 'flex' : 'none', fontSize: "15px", color: 'red', width: 'inherit', margin: '10px 0px 0px' }}>{message}</p>
-    )
-  }
+      <p
+        style={{
+          display: condition ? "flex" : "none",
+          fontSize: "15px",
+          color: "red",
+          width: "inherit",
+          margin: "10px 0px 0px",
+        }}
+      >
+        {message}
+      </p>
+    );
+  };
 
   return (
     <div className="login">
@@ -56,7 +61,7 @@ const FormLogin = props => {
           backgroundColor: "#9100c7",
           height: "30px",
           display: "block",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         <p style={{ color: "white", margin: "6px" }}>LOGIN</p>
@@ -68,34 +73,33 @@ const FormLogin = props => {
           marginTop: "20px",
           flexDirection: "column",
           width: "90%",
-          alignSelf: "center"
+          alignSelf: "center",
         }}
       >
         <input
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
           style={{
             marginBottom: "10px",
             border: "1px solid black",
             height: "30px",
-            padding: "0px 5px"
+            padding: "0px 5px",
           }}
         />
         <input
           placeholder="Senha"
           type="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
           style={{
             border: "1px solid black",
             height: "30px",
-            padding: "0px 5px"
+            padding: "0px 5px",
           }}
         />
 
         {renderAlert(currentUser.error, currentUser.error)}
-
       </div>
 
       <div
@@ -103,7 +107,7 @@ const FormLogin = props => {
           display: "flex",
           alignSelf: "center",
           marginTop: "10px",
-          flexDirection: "column"
+          flexDirection: "column",
         }}
       >
         <button
@@ -116,11 +120,11 @@ const FormLogin = props => {
             border: "none",
             color: "white",
             alignSelf: "center",
-            cursor: enableButton ? "pointer" : 'not-allowed',
-            opacity: enableButton ? '1.0' : '0.5'
+            cursor: enableButton ? "pointer" : "not-allowed",
+            opacity: enableButton ? "1.0" : "0.5",
           }}
         >
-          {'ENTRAR'}
+          {"ENTRAR"}
         </button>
         <p
           onClick={() => redirectForgotPassword()}
@@ -131,7 +135,11 @@ const FormLogin = props => {
 
         <p
           onClick={() => redirectRegister()}
-          style={{ margin: "5px 0px 0px 0px", cursor: "pointer", textAlign: 'center' }}
+          style={{
+            margin: "5px 0px 0px 0px",
+            cursor: "pointer",
+            textAlign: "center",
+          }}
         >
           Registre-se
         </p>

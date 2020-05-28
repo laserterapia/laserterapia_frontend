@@ -40,7 +40,7 @@ const Menu = (props) => {
               <NavLink href={`${URL_FRONT}/home`}>HOME</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href={`${URL_FRONT}/users`}>ALUNOS</NavLink>
+              <NavLink href={`${URL_FRONT}/collaborators`}>COLABORADORES</NavLink>
             </NavItem>
             <NavItem>
               <NavLink href={`${URL_FRONT}/patients`}>PACIENTES</NavLink>

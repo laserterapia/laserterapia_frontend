@@ -12,7 +12,7 @@ const getAllUsers = token => async dispatch => {
     .then(res => {
       return dispatch({
         type: GET_USERS,
-        payload: res.payload
+        payload: res.data.users
       });
     })
     .catch(error => {

@@ -1,4 +1,4 @@
-import { ERROR, REGISTER, LOGIN } from "../actions/_types";
+import { ERROR, REGISTER, LOGIN, SET_ERROR } from "../actions/_types";
 
 const INITIAL_STATE = {
   currentUser: {},
@@ -12,7 +12,9 @@ function MainReducer(state = INITIAL_STATE, action) {
     case LOGIN:
       return { ...state, currentUser: action.payload.user, token: action.payload.token };
     case ERROR:
-      return { ...state, error: true };
+      return { ...state, error: true }; 
+    case SET_ERROR:
+      return { ...state, error: false }
     default:
       return { ...state };
   }

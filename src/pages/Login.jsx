@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import FormLogin from "../components/FormLogin";
 import logo from "../assets/images/logo.jpg";
-import { login } from '../redux/actions/auth.js'
+import { login, setErrorFalse } from '../redux/actions/auth.js'
 
 const Login = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(setErrorFalse())
+  }, [dispatch])
 
   return (
     <div style={{ backgroundColor: '#141414', height: '100vh' }}>
