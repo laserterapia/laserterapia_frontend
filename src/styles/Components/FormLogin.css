@@ -3,7 +3,8 @@
         flex-direction: column;
         width: auto;
         max-width: 90%;
-        height: 220px;
+        height: auto;
+        min-height: 220px;
         border: 1px solid black;
         display: flex;
         margin: 0px auto;
@@ -16,7 +17,8 @@
         flex-direction: column;
         width: auto;
         max-width: 425px;
-        height: 220px;
+        height: auto;
+        min-height: 220px;
         border: 1px solid black;
         display: flex;
         margin: 0px auto;

@@ -1,13 +1,16 @@
-import { GET_USERS } from "../actions/_types";
+import { GET_USERS, GET_PATIENTS } from "../actions/_types";
 
 const INITIAL_STATE = {
-  users: []
+  users: [],
+  patients: []
 };
 
 function HomeReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case GET_USERS:
       return { ...state, users: action.payload };
+    case GET_PATIENTS:
+      return { ...state, patients: action.payload }
     default:
       return { ...state };
   }

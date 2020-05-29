@@ -30,6 +30,7 @@ const login = (email, password) => async (dispatch) => {
       });
     })
     .catch((error) => {
+      console.log(error)
       return dispatch({
         type: ERROR_AUTH,
       });

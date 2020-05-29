@@ -5,12 +5,12 @@ import { withRouter } from "react-router-dom";
 import Menu from "../components/Menu";
 import CardList from "../components/CardList";
 
-import { getAllUsers } from "../redux/actions/home";
+import { getAllPatients } from "../redux/actions/home";
 
-const Collaborators = (props) => {
+const Patients = (props) => {
   const dispatch = useDispatch();
 
-  const users = useSelector((state) => state.home.users);
+  const patients = useSelector((state) => state.home.patients);
   const token = useSelector((state) => state.main.token);
   const currentUser = useSelector(state => state.main.currentUser);
 
@@ -25,14 +25,14 @@ const Collaborators = (props) => {
   })
 
   useEffect(() => {
-    dispatch(getAllUsers(token));
+    dispatch(getAllPatients(token));
   }, [dispatch, token]);
 
   return (
     <Menu>
-      <CardList list={users} />
+      <CardList list={patients} />
     </Menu>
   );
 };
 
-export default withRouter(Collaborators);
+export default withRouter(Patients);

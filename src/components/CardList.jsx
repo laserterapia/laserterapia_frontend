@@ -9,13 +9,13 @@ const CardList = (props) => {
 
   return (
     <div className="card_list">
-      {props.users.map((user, index) => (
+      {props.list.map((element, index) => (
         <CollaboratorCard
           key={index}
-          profilePicture={user.profilePicture}
-          name={user.name}
-          course={user.course}
-          email={user.email}
+          profilePicture={element.profilePicture}
+          name={element.name}
+          course={element.course}
+          email={element.email}
         />
       ))}
     </div>

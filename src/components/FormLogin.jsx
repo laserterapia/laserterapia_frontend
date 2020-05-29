@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import "../styles/Components/FormLogin.css";
 
-import { login } from "../redux/actions/auth.js";
+import { login, setErrorFalse } from "../redux/actions/auth.js";
 
 const FormLogin = (props) => {
   const dispatch = useDispatch();
@@ -13,6 +13,8 @@ const FormLogin = (props) => {
   const [password, setPassword] = useState("");
 
   const currentUser = useSelector((state) => state.main.currentUser);
+  const errorAuth = useSelector((state) => state.auth.errorAuth);
+  const errorMsg = useSelector((state) => state.auth.errorMsg);
 
   const enableButton = email !== "" && password !== "";
 
@@ -25,7 +27,7 @@ const FormLogin = (props) => {
   };
 
   const redirectHome = () => {
-    if (!isEmpty(currentUser) && !currentUser.error) {
+    if (!isEmpty(currentUser) && !errorAuth) {
       props.history.push("/home");
     }
   };
@@ -37,6 +39,10 @@ const FormLogin = (props) => {
   useEffect(() => {
     redirectHome();
   });
+
+  useEffect(() => {
+    dispatch(setErrorFalse())
+  }, [])
 
   const renderAlert = (condition, message) => {
     return (
@@ -99,7 +105,7 @@ const FormLogin = (props) => {
           }}
         />
 
-        {renderAlert(currentUser.error, currentUser.error)}
+        {renderAlert(errorAuth, errorMsg)}
       </div>
 
       <div
