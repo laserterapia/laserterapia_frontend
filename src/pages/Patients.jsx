@@ -7,6 +7,9 @@ import CardList from "../components/CardList";
 
 import { getAllPatients } from "../redux/actions/home";
 
+import plus_icon from '../assets/images/plus_icon.png';
+import "../styles/pages/patients.css"
+
 const Patients = (props) => {
   const dispatch = useDispatch();
 
@@ -30,6 +33,9 @@ const Patients = (props) => {
 
   return (
     <Menu>
+      <div className="plus_icon_div" onClick={() => alert('OI')}>
+        <img className="plus_icon" src={plus_icon}></img>
+      </div>
       <CardList list={patients} />
     </Menu>
   );

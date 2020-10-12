@@ -19,6 +19,10 @@ const Menu = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
 
+  const logout = () => {
+    localStorage.removeItem("state");
+  }
+
   return (
     <div className="main_div_menu">
       <div className="menu_logo">
@@ -44,6 +48,9 @@ const Menu = (props) => {
             </NavItem>
             <NavItem>
               <NavLink href={`${URL_FRONT}/patients`}>PACIENTES</NavLink>
+            </NavItem>
+            <NavItem className="logout_button">
+              <NavLink href={`${URL_FRONT}/`} onClick={logout()}>LOGOUT</NavLink>
             </NavItem>
           </Nav>
         </Collapse>

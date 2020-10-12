@@ -1,0 +1,24 @@
+@media screen and (max-width: 1023px) {
+    .plus_icon_div {
+        padding: 1%;
+    }
+
+    .plus_icon {
+        width: 40px;
+        height: 40px;
+    }   
+}
+
+@media screen and (min-width: 1024px) {
+    .plus_icon_div {
+        padding: 1%;
+        cursor: pointer !important;
+        width: 40px;
+        height: 40px;
+    }
+
+    .plus_icon {
+        width: 40px;
+        height: 40px;
+    }   
+}
