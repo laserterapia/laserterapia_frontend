@@ -1,0 +1,39 @@
+@media screen and (max-width: 1023px) {
+    .register-user-container {
+        padding: 3%;
+    }
+
+    .register-user-title {
+        font-size: 18px;
+    }
+
+    .register-user-input {
+        margin-top: 2px;
+        margin-bottom: 10px;
+        width: 100%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px groove black;
+      }
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .register-user-container {
+        padding: 3%;
+    }
+
+    .register-user-title {
+        font-size: 18px;
+    }
+
+    .register-user-input {
+        margin-top: 2px;
+        margin-bottom: 10px;
+        width: 50%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px groove black;
+      }
+  }

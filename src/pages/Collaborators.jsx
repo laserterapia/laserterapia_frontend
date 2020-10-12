@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import Menu from "../components/Menu";
 import CardList from "../components/CardList";
+import UserFieldRegister from "../components/UserFieldRegister";
 
 import { getAllUsers } from "../redux/actions/home";
 
@@ -18,8 +19,8 @@ const Collaborators = (props) => {
     return Object.entries(obj).length === 0 && obj.constructor === Object;
   }
 
-  useEffect(()=> {
-    if(isEmpty(currentUser)){
+  useEffect(() => {
+    if (isEmpty(currentUser)) {
       props.history.push('/')
     }
   })
@@ -30,6 +31,7 @@ const Collaborators = (props) => {
 
   return (
     <Menu>
+      <UserFieldRegister />
       <CardList list={users} />
     </Menu>
   );
