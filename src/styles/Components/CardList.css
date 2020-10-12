@@ -2,7 +2,6 @@
   .card_list {
     flex-direction: row;
     display: flex;
-    padding: 3%;
     flex-wrap: wrap;
  }
 }

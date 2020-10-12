@@ -16,11 +16,22 @@
         border-right: none;
         border-bottom: 1px groove black;
       }
+
+      .register-user-button {
+        background-color: #7d1195;
+        color: white;
+        border: none;
+        display: block;
+        margin: 20px 0px;
+        height: 35px;
+        min-width: 150px;
+        font-size: 15px;
+      }
   }
   
   @media screen and (min-width: 1024px) {
     .register-user-container {
-        padding: 3%;
+        padding: 2%;
     }
 
     .register-user-title {
@@ -35,5 +46,16 @@
         border-left: none;
         border-right: none;
         border-bottom: 1px groove black;
+      }
+
+      .register-user-button {
+        background-color: #7d1195;
+        color: white;
+        border: none;
+        display: block;
+        margin: 20px 0px;
+        height: 35px;
+        min-width: 150px;
+        font-size: 15px;
       }
   }

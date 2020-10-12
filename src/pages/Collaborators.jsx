@@ -31,7 +31,9 @@ const Collaborators = (props) => {
 
   return (
     <Menu>
-      <UserFieldRegister />
+      {/* {currentUser.role === 'admin' && */}
+        <UserFieldRegister />
+      {/* // } */}
       <CardList list={users} />
     </Menu>
   );

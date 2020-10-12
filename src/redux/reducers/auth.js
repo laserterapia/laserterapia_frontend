@@ -3,8 +3,10 @@ import {
   FORGOT_PASSWORD,
   RESET_PASSWORD,
   LOGIN,
-  SET_ERROR_FALSE,
   SET_ERROR,
+  ADMIN_REGISTER,
+  ADMIN_REGISTER_ERROR,
+  RESET_ADMIN_REGISTER
 } from "../actions/_types.js";
 
 const INITIAL_STATE = {
@@ -12,6 +14,7 @@ const INITIAL_STATE = {
   resetPassword: {},
   errorAuth: false,
   errorMsg: "",
+  successAdminRegister: undefined
 };
 
 function AuthReducer(state = INITIAL_STATE, action) {
@@ -30,6 +33,12 @@ function AuthReducer(state = INITIAL_STATE, action) {
       return { ...state, errorAuth: true };
     case SET_ERROR:
       return { ...state, errorAuth: false, errorMsg: '' }
+    case ADMIN_REGISTER:
+      return { ...state, successAdminRegister: true }
+    case ADMIN_REGISTER_ERROR:
+      return { ...state, successAdminRegister: false }
+    case RESET_ADMIN_REGISTER:
+      return { ...state, successAdminRegister: undefined }
     default:
       return state;
   }

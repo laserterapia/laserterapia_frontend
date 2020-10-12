@@ -7,6 +7,9 @@ import {
   RESET_PASSWORD,
   SET_ERROR,
   ERROR_AUTH,
+  ADMIN_REGISTER,
+  ADMIN_REGISTER_ERROR,
+  RESET_ADMIN_REGISTER
 } from "./_types";
 
 const login = (email, password) => async (dispatch) => {
@@ -106,4 +109,32 @@ const setErrorFalse = () => (dispatch) => {
   });
 };
 
-export { login, register, forgotPassword, resetPassword, setErrorFalse };
+const adminRegister = (registeredEmail, role) => async (dispatch) => {
+  const header = {
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json"
+  };
+  axios
+    .post(`${BASE_URL}/auth/admin-register`, { registeredEmail, role }, header)
+    .then((res) => {
+      return dispatch({
+        type: ADMIN_REGISTER,
+        payload: res.data,
+      });
+    })
+    .catch((error) => {
+      return dispatch({
+        type: ADMIN_REGISTER_ERROR,
+      });
+    });
+}
+
+const resetAdminRegister = () => (dispatch) => {
+  return dispatch(
+    {
+      type: RESET_ADMIN_REGISTER
+    }
+  )
+}
+
+export { login, register, forgotPassword, resetPassword, setErrorFalse, adminRegister, resetAdminRegister };

@@ -8,3 +8,6 @@ export const SET_ERROR_FALSE = "set_error_false";
 export const ERROR_AUTH = "error_auth";
 export const SET_ERROR = "set_error";
 export const GET_PATIENTS = "get_patients";
+export const ADMIN_REGISTER = "admin_register";
+export const ADMIN_REGISTER_ERROR = "admin_register_error";
+export const RESET_ADMIN_REGISTER = "reset_admin_register";
