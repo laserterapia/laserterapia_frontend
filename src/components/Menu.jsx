@@ -50,7 +50,7 @@ const Menu = (props) => {
               <NavLink href={`${URL_FRONT}/patients`}>PACIENTES</NavLink>
             </NavItem>
             <NavItem className="logout_button">
-              <NavLink href={`${URL_FRONT}/`} onClick={logout()}>LOGOUT</NavLink>
+              <NavLink href={`${URL_FRONT}/`} onClick={() => logout()}>LOGOUT</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
