@@ -1,6 +1,6 @@
 import axios from "axios";
 import { BASE_URL } from "../../assets/constants";
-import { GET_USERS, ERROR, GET_PATIENTS } from "./_types";
+import { GET_USERS, ERROR, GET_PATIENTS, REGISTER_PATIENT, ERROR_REGISTER_PATIENT } from "./_types";
 
 const getAllUsers = token => async dispatch => {
   const headers = {
@@ -44,4 +44,24 @@ const getAllPatients = token => async dispatch => {
     });
 };
 
-export { getAllUsers, getAllPatients };
+const registerPatient = (sentPatient, token) => async dispatch => {
+  const headers = {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${token}`
+  };
+  axios
+    .post(`${BASE_URL}/patient/register`, {sentPatient}, {headers})
+    .then((res) => {
+      return dispatch({
+        type: REGISTER_PATIENT,
+        payload: res.data,
+      });
+    })
+    .catch((error) => {
+      return dispatch({
+        type: ERROR_REGISTER_PATIENT,
+      });
+    });
+}
+
+export { getAllUsers, getAllPatients, registerPatient };

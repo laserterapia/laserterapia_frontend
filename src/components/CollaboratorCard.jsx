@@ -12,6 +12,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Components/Card.css";
 
 const CollaboratorCard = (props) => {
+
+  const date = new Date(props.createdAt)
+
+  var day = date.getDate();
+  var month = date.getMonth() + 1;
+  var year = date.getFullYear();
+
   return (
     <Card>
       <CardImg
@@ -20,11 +27,20 @@ const CollaboratorCard = (props) => {
         src={props.profilePicture ? props.profilePicture : not_found}
         alt="Foto de perfil"
       />
-      <CardBody>
-        <CardText>Colaborador: {props.name}</CardText>
-        <CardText>Curso: {props.course}</CardText>
-        <CardText>Email: {props.email}</CardText>
-      </CardBody>
+      {props.type == 'collaborator' &&
+        <CardBody>
+          <CardText>Colaborador: {props.name}</CardText>
+          <CardText>Curso: {props.course}</CardText>
+          <CardText>Email: {props.email}</CardText>
+        </CardBody>
+      }
+      {props.type == 'patient' &&
+        <CardBody>
+          <CardText>Nome: {props.name}</CardText>
+          <CardText>Idade: {props.age}</CardText>
+          <CardText>{`Cadastrado em: ${day}/${month}/${year}`}</CardText>
+        </CardBody>
+      }
     </Card>
   );
 };

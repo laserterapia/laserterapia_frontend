@@ -110,12 +110,12 @@ const setErrorFalse = () => (dispatch) => {
 };
 
 const adminRegister = (registeredEmail, role) => async (dispatch) => {
-  const header = {
+  const headers = {
     "Access-Control-Allow-Origin": "*",
     "Content-Type": "application/json"
   };
   axios
-    .post(`${BASE_URL}/auth/admin-register`, { registeredEmail, role }, header)
+    .post(`${BASE_URL}/auth/admin-register`, { registeredEmail, role }, {headers})
     .then((res) => {
       return dispatch({
         type: ADMIN_REGISTER,

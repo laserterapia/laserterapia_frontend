@@ -36,7 +36,7 @@ const Patients = (props) => {
       <div className="plus_icon_div" onClick={() => props.history.push("/patient_register")}>
         <img className="plus_icon" src={plus_icon}></img>
       </div>
-      <CardList list={patients} />
+      <CardList type={"patient"} list={patients} />
     </Menu>
   );
 };

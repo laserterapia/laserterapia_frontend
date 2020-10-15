@@ -11,11 +11,14 @@ const CardList = (props) => {
     <div className="card_list">
       {props.list.map((element, index) => (
         <CollaboratorCard
+          type={props.type}
           key={index}
           profilePicture={element.profilePicture}
           name={element.name}
           course={element.course}
           email={element.email}
+          age={element.age}
+          createdAt={element.createdAt}
         />
       ))}
     </div>

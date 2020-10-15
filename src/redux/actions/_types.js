@@ -11,3 +11,5 @@ export const GET_PATIENTS = "get_patients";
 export const ADMIN_REGISTER = "admin_register";
 export const ADMIN_REGISTER_ERROR = "admin_register_error";
 export const RESET_ADMIN_REGISTER = "reset_admin_register";
+export const REGISTER_PATIENT = "register_patient";
+export const ERROR_REGISTER_PATIENT = "error_register_patient";

@@ -1,0 +1,41 @@
+@media screen and (max-width: 1023px) {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .cadastre_um_paciente {
+        font-size: 20px;
+        color: #7d1195;
+        margin: 30px 0px;
+        width: fit-content;
+        display: flex;
+        text-align: left;
+    }
+
+    .input_label {
+        font-style: italic;
+        margin: 10px 0px 0px 0px;
+    }
+
+    .input_patient_register {
+        margin-top: 2px;
+        margin-bottom: 10px;
+        width: 50%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px groove black;
+    }
+
+    .register_patient_button {
+        background-color: #7d1195;
+        color: white;
+        border: none;
+        display: block;
+        margin: 20px 0px;
+        height: 35px;
+        width: fit-content;
+        font-size: 15px;
+    }
+}
