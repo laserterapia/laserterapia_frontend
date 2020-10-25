@@ -5,6 +5,7 @@ import {
   REGISTER,
   FORGOT_PASSWORD,
   RESET_PASSWORD,
+  SET_RESET_PASSWORD,
   SET_ERROR,
   ERROR_AUTH,
   ADMIN_REGISTER,
@@ -110,6 +111,12 @@ const resetPassword = (email, token, password) => async (dispatch) => {
     });
 };
 
+const setResetPassword = () => {
+  return {
+    type: SET_RESET_PASSWORD
+  }
+}
+
 const setErrorFalse = () => (dispatch) => {
   return dispatch({
     type: SET_ERROR,
@@ -144,4 +151,4 @@ const resetAdminRegister = () => (dispatch) => {
   )
 }
 
-export { login, register, forgotPassword, resetForgotPassword, resetPassword, setErrorFalse, adminRegister, resetAdminRegister };
+export { login, register, forgotPassword, resetForgotPassword, resetPassword, setResetPassword, setErrorFalse, adminRegister, resetAdminRegister };

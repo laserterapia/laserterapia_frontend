@@ -6,6 +6,8 @@ import TemplateResetPassword from "../templates/TemplateResetPassword";
 import TemplateSuccessResetPassword from "../templates/TemplateSuccessResetPassword";
 import { useEffect } from "react";
 
+import { setResetPassword } from "../redux/actions/auth";
+
 const ResetPassword = (props) => {
   const resetPassword = useSelector(state => state.auth.resetPassword);
 
@@ -24,6 +26,10 @@ const ResetPassword = (props) => {
     if(!token || !email){
       returnToBegin()
     }
+  }, [])
+
+  useEffect(() => {
+    setResetPassword();
   }, [])
 
   return (
