@@ -26,6 +26,9 @@ function AuthReducer(state = INITIAL_STATE, action) {
       return { ...state, forgotPassword: {}}
     case RESET_PASSWORD:
       return { ...state, resetPassword: action.payload };
+    case SET_RESET_PASSWORD: {
+      return { ...state, resetPassword: {}}
+    }
     case LOGIN:
       return {
         ...state,
