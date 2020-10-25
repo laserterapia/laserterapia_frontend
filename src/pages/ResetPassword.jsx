@@ -35,7 +35,7 @@ const ResetPassword = (props) => {
   return (
     <React.Fragment>
       {!resetPassword.message ? (
-        <TemplateResetPassword resetPassword={resetPassword} token={token} email={email} returnToBegin={returnToBegin} />
+        <TemplateResetPassword reset_password={resetPassword} token={token} email={email} returnToBegin={returnToBegin} />
       ) : (
         <TemplateSuccessResetPassword returnToBegin={returnToBegin} />
       )}
