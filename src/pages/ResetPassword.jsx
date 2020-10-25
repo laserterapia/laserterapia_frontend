@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import TemplateResetPassword from "../templates/TemplateResetPassword";
@@ -9,6 +9,8 @@ import { useEffect } from "react";
 import { setResetPassword } from "../redux/actions/auth";
 
 const ResetPassword = (props) => {
+  const dispatch = useDispatch();
+
   const resetPassword = useSelector(state => state.auth.resetPassword);
 
   let url = window.location.href
@@ -29,7 +31,7 @@ const ResetPassword = (props) => {
   }, [])
 
   useEffect(() => {
-    setResetPassword();
+    dispatch(setResetPassword());
   }, [])
 
   return (
