@@ -6,7 +6,7 @@ import Alert from "../components/Alert";
 
 import "../styles/pages/ForgotPassword.css";
 
-import { forgotPassword as forgot_password } from "../redux/actions/auth.js";
+import { forgotPassword as forgot_password, resetForgotPassword } from "../redux/actions/auth.js";
 
 const TemplateForgotPassword = props => {
   const dispatch = useDispatch();
@@ -21,6 +21,10 @@ const TemplateForgotPassword = props => {
       props.history.push("/error");
     }
   }, [error]);
+
+  useEffect(() => {
+    dispatch(resetForgotPassword())
+  }, [])
 
   return (
     <div className="forgot_password" style={{ flexDirection: "column" }}>

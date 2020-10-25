@@ -9,7 +9,8 @@ import {
   ERROR_AUTH,
   ADMIN_REGISTER,
   ADMIN_REGISTER_ERROR,
-  RESET_ADMIN_REGISTER
+  RESET_ADMIN_REGISTER,
+  RESET_FORGOT_PASSWORD
 } from "./_types";
 
 const login = (email, password) => async (dispatch) => {
@@ -79,6 +80,12 @@ const forgotPassword = (email) => async (dispatch) => {
     });
 };
 
+const resetForgotPassword = () => {
+  return {
+    type: RESET_FORGOT_PASSWORD
+  }
+}
+
 const resetPassword = (email, token, password) => async (dispatch) => {
   const header = {
     "Access-Control-Allow-Origin": "*",
@@ -137,4 +144,4 @@ const resetAdminRegister = () => (dispatch) => {
   )
 }
 
-export { login, register, forgotPassword, resetPassword, setErrorFalse, adminRegister, resetAdminRegister };
+export { login, register, forgotPassword, resetForgotPassword, resetPassword, setErrorFalse, adminRegister, resetAdminRegister };

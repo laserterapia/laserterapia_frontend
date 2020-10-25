@@ -13,7 +13,7 @@ const TemplateSuccessResetPassword = (props) => {
       </div>
       <div className='success_reset_center'>
         <img src={success_reset_password} alt="Sucesso ao resetar a senha"  className='img_success'/>
-        <p className='text_reset_success'>Sua nova senha foi redinida com sucesso!</p>
+        <p className='text_reset_success'>Sua nova senha foi definida com sucesso!</p>
       </div>
       <a onClick={props.returnToBegin}>Voltar ao início</a>
     </div>

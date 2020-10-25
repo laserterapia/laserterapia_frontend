@@ -1,6 +1,7 @@
 import {
   ERROR_AUTH,
   FORGOT_PASSWORD,
+  RESET_FORGOT_PASSWORD,
   RESET_PASSWORD,
   LOGIN,
   SET_ERROR,
@@ -21,6 +22,8 @@ function AuthReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FORGOT_PASSWORD:
       return { ...state, forgotPassword: action.payload };
+    case RESET_FORGOT_PASSWORD:
+      return { ...state, forgotPassword: {}}
     case RESET_PASSWORD:
       return { ...state, resetPassword: action.payload };
     case LOGIN:

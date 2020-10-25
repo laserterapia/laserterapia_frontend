@@ -2,6 +2,7 @@ export const LOGIN = "login";
 export const REGISTER = "register";
 export const ERROR = "error";
 export const FORGOT_PASSWORD = "forgot_password";
+export const RESET_FORGOT_PASSWORD = "reset_forgot_password";
 export const RESET_PASSWORD = "reset_password";
 export const GET_USERS = "get_users";
 export const SET_ERROR_FALSE = "set_error_false";
