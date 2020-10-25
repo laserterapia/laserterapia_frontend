@@ -5,6 +5,7 @@ import {
   CardText,
   CardBody
 } from "reactstrap";
+import { withRouter } from "react-router-dom";
 
 import not_found from "../assets/images/not_found.jpg";
 
@@ -20,7 +21,7 @@ const CollaboratorCard = (props) => {
   var year = date.getFullYear();
 
   return (
-    <Card>
+    <Card style={{cursor: "pointer"}} onClick={() => props.history.push("/patient")}>
       <CardImg
         className="profile_picture"
         top
@@ -29,15 +30,15 @@ const CollaboratorCard = (props) => {
       />
       {props.type == 'collaborator' &&
         <CardBody>
-          <CardText>Colaborador: {props.name}</CardText>
-          <CardText>Curso: {props.course}</CardText>
-          <CardText>Email: {props.email}</CardText>
+          <CardText>Colaborador: <span style={{fontWeight: "normal"}}>{props.name}</span></CardText>
+          <CardText>Curso: <span style={{fontWeight: "normal"}}>{props.course}</span></CardText>
+          <CardText>Email: <span style={{fontWeight: "normal"}}>{props.email}</span></CardText>
         </CardBody>
       }
       {props.type == 'patient' &&
         <CardBody>
-          <CardText>Nome: {props.name}</CardText>
-          <CardText>Idade: {props.age}</CardText>
+          <CardText>Nome: <span style={{fontWeight: "normal"}}>{props.name}</span></CardText>
+          <CardText>Idade: <span style={{fontWeight: "normal"}}>{props.age}</span></CardText>
           <CardText>{`Cadastrado em: ${day}/${month}/${year}`}</CardText>
         </CardBody>
       }
@@ -45,4 +46,4 @@ const CollaboratorCard = (props) => {
   );
 };
 
-export default CollaboratorCard;
+export default withRouter(CollaboratorCard);

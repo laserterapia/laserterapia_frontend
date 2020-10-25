@@ -10,6 +10,7 @@ import ResetPassword from "./pages/ResetPassword";
 import Collaborators from './pages/Collaborators'
 import Patients from "./pages/Patients";
 import PatientRegister from "./pages/PatientRegister";
+import Patient from "./pages/Patient"
 
 const Routes = props => {
   return (
@@ -24,6 +25,7 @@ const Routes = props => {
         <Route path='/collaborators' component={Collaborators} />
         <Route path='/patients' component={Patients} />
         <Route path='/patient_register' component={PatientRegister} />
+        <Route path='/patient' component={Patient} />
       </Switch>
     </BrowserRouter>
   );

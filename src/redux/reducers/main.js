@@ -2,6 +2,7 @@ import { ERROR, REGISTER, LOGIN, SET_ERROR } from "../actions/_types";
 
 const INITIAL_STATE = {
   currentUser: {},
+  currentPatient: {},
   token: "",
   error: false,
   errorMsg: "",
