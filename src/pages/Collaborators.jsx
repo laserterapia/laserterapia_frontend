@@ -31,10 +31,10 @@ const Collaborators = (props) => {
 
   return (
     <Menu>
-      {/* {currentUser.role === 'admin' && */}
+      {currentUser.role === 'admin' &&
         <UserFieldRegister />
-      {/* // } */}
-      <CardList type="collaborator" list={users} />
+       }      
+       <CardList type="collaborator" list={users} />
     </Menu>
   );
 };

@@ -21,7 +21,7 @@ const CollaboratorCard = (props) => {
   var year = date.getFullYear();
 
   return (
-    <Card style={{cursor: "pointer"}} onClick={() => props.history.push("/patient")}>
+    <Card style={{cursor: "pointer"}}>
       <CardImg
         className="profile_picture"
         top
